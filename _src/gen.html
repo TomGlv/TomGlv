@@ -81,25 +81,25 @@ body.dark .card .art .no{color:#0b0b0b} body.dark .card .art .lang{background:#0
 </style></head><body>
 <div class="a" id="banner"><canvas class="topo"></canvas>
   <div class="kick mono" style="position:relative"><i></i>// whoami — Bachelor 3 AI @ ECE Paris</div>
-  <div class="name"><span class="serif">Tom</span><span class="sans">GALVAN</span></div>
+  <div class="name"><span class="serif">Tom</span><span class="sans">Galvan</span></div>
 
   <div class="foot mono"><b>$ status</b> open to a 6-month AI / ML internship · from April 2027 · Paris or abroad</div>
 </div>
 <div class="a" id="th-head"><canvas class="topo"></canvas><div style="position:relative">
 <div class="tag mono"><i></i>// cat highlights.md</div>
-<h2>TECHNICAL <em>highlights</em></h2>
+<h2>Technical <em>highlights</em></h2>
 <p class="mono">I build end-to-end AI systems — data → model → API → UI — and measure them.</p>
 <div class="cols mono"><span>Project</span><span>Approach · stack</span><span style="text-align:right">Result</span></div></div></div>
 <div id="ths" style="display:flex;flex-direction:column;gap:0"></div>
 <div class="a" id="footer"><canvas class="topo"></canvas>
-  <span class="s1">Let's</span><span class="s2">COMMIT</span>
-  <div class="info mono">tomglv.dev<br>tom.galvan92@gmail.com<br><b>git push origin internship</b></div>
+  <span class="s1">Let's <i>talk</i>.</span><span class="s2">COMMIT</span>
+  <div class="info mono">tomglv.dev &nbsp;·&nbsp; tom.galvan92@gmail.com &nbsp;·&nbsp; github.com/TomGlv<br><b>git push origin internship</b></div>
 </div>
 <script src="data.js"></script>
 <script>
 const P = PROJECTS.slice(0, 8);
 const cards = document.getElementById("cards");
-P.forEach((p, i) => {
+if (cards) P.forEach((p, i) => {
   const d = document.createElement("div"); d.className = "a card"; d.id = "card-" + i;
   const tags = p.tags.filter((t) => t !== "Featured").slice(0, 3);
   d.innerHTML = `<div class="lab">${p.lang}, ${String(i + 1).padStart(2, "0")} <i></i></div>
@@ -109,7 +109,7 @@ P.forEach((p, i) => {
 });
 const SK = [["AI / ML", "LLMs · OCR · PyTorch · scikit-learn", "AI"], ["Python", "ML · automation · bots", "Python"], ["C / C++", "OCR tooling · algorithms · games", "C*"], ["Web", "Next.js · Astro · TypeScript", "Web"], ["Java · C#", "OOP · desktop apps", "JC"], ["SQL", "MySQL · PostgreSQL · MongoDB", "all"]];
 const cnt = (k) => k === "AI" ? PROJECTS.filter((p) => p.tags.includes("AI")).length : k === "C*" ? PROJECTS.filter((p) => p.lang === "C" || p.lang === "C++").length : k === "JC" ? PROJECTS.filter((p) => p.lang === "Java" || p.lang === "C#").length : k === "all" ? null : PROJECTS.filter((p) => p.lang === k).length;
-document.getElementById("stack").innerHTML = SK.map(([n, r, k], i) => { const c = cnt(k); return `<div class="row"><span class="i">${String(i + 1).padStart(2, "0")}</span><span class="n">${n}</span><span class="r">${r}</span><span class="c">${c == null ? "every database" : String(c).padStart(2, "0") + " projects"}</span></div>`; }).join("");
+if (document.getElementById("stack")) document.getElementById("stack").innerHTML = SK.map(([n, r, k], i) => { const c = cnt(k); return `<div class="row"><span class="i">${String(i + 1).padStart(2, "0")}</span><span class="n">${n}</span><span class="r">${r}</span><span class="c">${c == null ? "every database" : String(c).padStart(2, "0") + " projects"}</span></div>`; }).join("");
 /* topo lines: contour lines of a smooth random field (marching squares) */
 function topo(cv, seed) {
   const r = cv.getBoundingClientRect(), W = (cv.width = r.width * 2), H = (cv.height = r.height * 2), g = cv.getContext("2d");
@@ -143,9 +143,40 @@ const TH = [
 const ths = document.getElementById("ths");
 TH.forEach(([n, sub, ap, st, rs], i) => {
   const d = document.createElement("div"); d.className = "a th" + (i === TH.length - 1 ? " last" : ""); d.id = "th-" + i;
-  if (i) d.style.borderTop = "1px solid color-mix(in srgb, var(--ink) 25%, transparent)";
+  if (i) d.style.borderTop = "1px solid color-mix(in srgb, var(--ink) 18%, transparent)";
   d.innerHTML = `<div class="nm">${n}<small>${String(i + 1).padStart(2, "0")} · ${sub} ↗</small></div><div><div class="ap mono">${ap}</div><div class="st mono">${st}</div></div><div class="rs mono">${rs}</div>`;
   ths.appendChild(d);
 });
 window.render = () => document.querySelectorAll("canvas.topo").forEach((c, i) => topo(c, 1234 + i * 77));
 </script></body></html>
+
+<style>
+/* calm GitHub variant */
+#banner{height:230px!important;padding:40px 52px!important}
+#banner .kick{font-size:14px!important} #banner .kick i{width:28px!important;height:6px!important}
+#banner .name{margin-top:26px!important;gap:16px!important}
+#banner .serif{font-size:76px!important}
+#banner .sans{font-size:74px!important;font-weight:600!important;font-stretch:90%!important;letter-spacing:-.02em!important}
+#banner .foot{bottom:36px!important;font-size:14px!important;color:var(--mute)!important}
+#banner .foot b{background:none!important;color:var(--ink)!important;padding:0!important;margin-right:6px}
+canvas.topo{opacity:.55}
+#th-head{padding:30px 52px 12px!important}
+#th-head .tag{font-size:13px!important} #th-head .tag i{width:28px!important;height:6px!important}
+#th-head h2{font-family:var(--serif)!important;font-weight:400!important;font-size:40px!important;letter-spacing:0!important;margin-top:12px!important}
+#th-head h2 em{font-size:40px!important;font-style:italic!important}
+#th-head p{font-size:13.5px!important;margin-top:8px!important}
+#th-head .cols{font-size:11px!important;margin-top:18px!important;border-bottom-color:color-mix(in srgb,var(--ink) 35%,transparent)!important}
+.th{padding:16px 52px!important}
+.th .nm{font-family:var(--serif)!important;font-weight:400!important;font-size:25px!important;text-transform:none!important;letter-spacing:0!important}
+.th .nm small{font-size:11.5px!important;margin-top:6px!important}
+.th .ap{font-size:13px!important}
+.th .st{font-size:12px!important;margin-top:6px!important}
+.th .rs{font-size:12.5px!important;color:var(--mute)}
+.th .rs b{background:none!important;color:var(--ink)!important;padding:0!important;font-size:15px!important;margin-bottom:2px!important}
+.th.last{border-bottom-color:color-mix(in srgb,var(--ink) 35%,transparent)!important}
+#footer{height:96px!important;padding:0 52px!important;display:flex;align-items:center;justify-content:space-between}
+#footer .s1{font-size:34px!important;display:inline!important;line-height:1!important}
+#footer .s2{display:none!important}
+#footer .info{position:static!important;font-size:13px!important;line-height:1!important;color:var(--mute)}
+#footer .info br{display:none} #footer .info b{display:none}
+</style>
