@@ -1,0 +1,118 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Mona+Sans:wdth,wght@75..125,200..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#efeee9;--paper-2:#e2e1da;--ink:#0b0b0b;--mute:#6b6a66;--serif:"Instrument Serif",serif;--sans:"Mona Sans",Arial,sans-serif;--code:"Courier Prime","Courier New",monospace}
+body.dark{--paper:#0b0b0b;--paper-2:#1a1a1a;--ink:#efeee9;--mute:#8d8c87}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#888;font-family:var(--code);padding:20px;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.a{background:var(--paper);color:var(--ink);position:relative;overflow:hidden;width:1000px}
+canvas.topo{position:absolute;inset:0;width:100%;height:100%}
+.mono{font-family:var(--code)}
+/* banner */
+#banner{height:400px;padding:44px 52px}
+#banner .kick{font-size:17px;letter-spacing:.02em;display:flex;align-items:center;gap:12px}
+#banner .kick i{display:inline-block;width:44px;height:10px;background:var(--ink)}
+#banner .name{position:relative;margin-top:26px;line-height:.8}
+#banner .serif{font-family:var(--serif);font-size:150px;display:block;letter-spacing:-.01em}
+#banner .sans{font-family:var(--sans);font-weight:800;font-stretch:85%;font-size:170px;letter-spacing:-.035em;display:block;margin-top:-8px}
+#banner .av{position:absolute;right:18px;bottom:-6px;width:300px;filter:grayscale(1) contrast(1.05)}
+body.dark #banner .av{filter:grayscale(1) contrast(1.05) drop-shadow(0 0 0 #efeee9)}
+#banner .foot{position:absolute;left:52px;bottom:30px;font-size:16px;color:var(--ink);background:var(--paper);padding:4px 0}
+#banner .foot b{background:var(--ink);color:var(--paper);padding:2px 8px;font-weight:700}
+/* section titles */
+.t{height:200px;padding:30px 52px;display:flex;align-items:flex-end;justify-content:space-between}
+.t .big{line-height:.82}
+.t .s1{font-family:var(--serif);font-size:96px;display:block}
+.t .s2{font-family:var(--sans);font-weight:800;font-stretch:85%;font-size:110px;letter-spacing:-.03em;display:block}
+.t .side{font-size:15px;max-width:340px;color:var(--mute);line-height:1.5;padding-bottom:12px;position:relative}
+.t .tag{position:absolute;top:30px;left:52px;font-size:14px;display:flex;gap:10px;align-items:center;color:var(--mute)}
+.t .tag i{width:44px;height:10px;background:var(--ink)}
+/* cards */
+.card{width:490px;padding:18px 18px 22px;background:var(--paper)}
+.card .lab{font-size:12px;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:10px;color:var(--mute);margin-bottom:10px}
+.card .lab i{width:54px;height:8px;background:var(--ink)}
+.card .art{background:#111;height:250px;position:relative;display:flex;align-items:center;justify-content:center}
+body.dark .card .art{background:#efeee9}
+.card .art .no{position:absolute;left:12px;top:10px;font-size:12px;color:#efeee9;font-weight:700}
+.card .art .lang{position:absolute;right:12px;top:10px;font-size:12px;background:#efeee9;color:#0b0b0b;padding:3px 8px}
+body.dark .card .art .no{color:#0b0b0b} body.dark .card .art .lang{background:#0b0b0b;color:#efeee9}
+.card .art .go{position:absolute;right:14px;bottom:10px;color:#efeee9;font-size:22px} body.dark .card .art .go{color:#0b0b0b}
+.ic{width:130px;height:130px;overflow:visible;color:#efeee9} body.dark .ic{color:#0b0b0b}
+.ic .s,.ic .a{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.ic .af,.ic .cf{fill:currentColor}
+.ic [fill="#0b0b0b"]{fill:#111} body.dark .ic [fill="#0b0b0b"]{fill:#efeee9}
+.card h3{font-family:var(--serif);font-weight:400;font-size:34px;margin-top:14px;line-height:1}
+.card p{font-size:14px;line-height:1.45;color:var(--mute);margin-top:8px;min-height:62px}
+.card .meta{margin-top:10px;padding-top:9px;border-top:1px dashed var(--mute);font-size:12.5px;display:flex;gap:8px;flex-wrap:wrap}
+.card .meta span{border:1px solid var(--ink);padding:2px 8px;border-radius:100px}
+/* stack rows */
+#stack{padding:6px 52px 30px}
+.row{display:grid;grid-template-columns:60px 300px 1fr 150px;align-items:baseline;padding:18px 0;border-top:1px solid var(--ink)}
+.row:last-child{border-bottom:1px solid var(--ink)}
+.row .i{font-size:14px;color:var(--mute)}
+.row .n{font-family:var(--sans);font-weight:800;font-stretch:85%;font-size:38px;letter-spacing:-.02em;text-transform:uppercase}
+.row .r{font-size:15px;color:var(--mute)}
+.row .c{font-size:14px;text-align:right}
+/* footer */
+#footer{height:330px;padding:44px 52px}
+#footer .s1{font-family:var(--serif);font-size:120px;line-height:.8;display:block;position:relative}
+#footer .s2{font-family:var(--sans);font-weight:800;font-stretch:85%;font-size:150px;letter-spacing:-.035em;line-height:.85;display:block;position:relative}
+#footer .info{position:absolute;right:52px;bottom:44px;text-align:right;font-size:16px;line-height:1.8}
+#footer .info b{background:var(--ink);color:var(--paper);padding:2px 8px}
+</style></head><body>
+<div class="a" id="banner"><canvas class="topo"></canvas>
+  <div class="kick mono" style="position:relative"><i></i>// whoami — Bachelor 3 AI @ ECE Paris</div>
+  <div class="name"><span class="serif">Tom</span><span class="sans">GALVAN</span></div>
+  <img class="av" src="main.png">
+  <div class="foot mono"><b>$ status</b> 6-month AI internship · from April 2027 · Paris / abroad</div>
+</div>
+<div class="a t" id="t-work"><canvas class="topo"></canvas><span class="tag mono"><i></i>// ls ./featured</span>
+  <div class="big" style="position:relative"><span class="s1">Selected</span><span class="s2">WORK</span></div>
+  <div class="side mono">AI first. Every card opens the repo: README, code, commit log.</div></div>
+<div id="cards" style="display:flex;flex-wrap:wrap;gap:20px;width:1000px"></div>
+<div class="a t" id="t-stack"><canvas class="topo"></canvas><span class="tag mono"><i></i>// cat stack.json</span>
+  <div class="big" style="position:relative"><span class="s1">What I</span><span class="s2">REACH FOR</span></div>
+  <div class="side mono">Counted from my public repositories, not self-rated percentages.</div></div>
+<div class="a" id="stack"></div>
+<div class="a" id="footer"><canvas class="topo"></canvas>
+  <span class="s1">Let's</span><span class="s2">COMMIT</span>
+  <div class="info mono">tomglv.dev<br>tom.galvan92@gmail.com<br><b>git push origin internship</b></div>
+</div>
+<script src="data.js"></script>
+<script>
+const P = PROJECTS.slice(0, 8);
+const cards = document.getElementById("cards");
+P.forEach((p, i) => {
+  const d = document.createElement("div"); d.className = "a card"; d.id = "card-" + i;
+  const tags = p.tags.filter((t) => t !== "Featured").slice(0, 3);
+  d.innerHTML = `<div class="lab">${p.lang}, ${String(i + 1).padStart(2, "0")} <i></i></div>
+  <div class="art"><svg class="ic" viewBox="0 0 120 120">${ICONS[p.icon]}</svg><span class="no">${String(i + 1).padStart(2, "0")}</span><span class="lang">${p.lang}</span><span class="go">↗</span></div>
+  <h3>${p.name}</h3><p>${p.desc}</p><div class="meta">${tags.map((t) => `<span>${t}</span>`).join("")}</div>`;
+  cards.appendChild(d);
+});
+const SK = [["AI / ML", "LLMs · OCR · PyTorch · scikit-learn", "AI"], ["Python", "ML · automation · bots", "Python"], ["C / C++", "OCR tooling · algorithms · games", "C*"], ["Web", "Next.js · Astro · TypeScript", "Web"], ["Java · C#", "OOP · desktop apps", "JC"], ["SQL", "MySQL · PostgreSQL · MongoDB", "all"]];
+const cnt = (k) => k === "AI" ? PROJECTS.filter((p) => p.tags.includes("AI")).length : k === "C*" ? PROJECTS.filter((p) => p.lang === "C" || p.lang === "C++").length : k === "JC" ? PROJECTS.filter((p) => p.lang === "Java" || p.lang === "C#").length : k === "all" ? null : PROJECTS.filter((p) => p.lang === k).length;
+document.getElementById("stack").innerHTML = SK.map(([n, r, k], i) => { const c = cnt(k); return `<div class="row"><span class="i">${String(i + 1).padStart(2, "0")}</span><span class="n">${n}</span><span class="r">${r}</span><span class="c">${c == null ? "every database" : String(c).padStart(2, "0") + " projects"}</span></div>`; }).join("");
+/* topo lines: contour lines of a smooth random field (marching squares) */
+function topo(cv, seed) {
+  const r = cv.getBoundingClientRect(), W = (cv.width = r.width * 2), H = (cv.height = r.height * 2), g = cv.getContext("2d");
+  let s = seed; const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+  const blobs = Array.from({ length: 7 }, () => ({ x: rnd() * W, y: rnd() * H, a: 0.6 + rnd(), r: 250 + rnd() * 500 }));
+  const f = (x, y) => blobs.reduce((v, b) => v + b.a * Math.exp(-((x - b.x) ** 2 + (y - b.y) ** 2) / (b.r * b.r)), 0) + 0.08 * Math.sin(x / 90) * Math.cos(y / 110);
+  const st = 10, cols = Math.ceil(W / st) + 1, rows = Math.ceil(H / st) + 1, v = [];
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) v.push(f(i * st, j * st));
+  g.strokeStyle = getComputedStyle(document.body).getPropertyValue("--ink"); g.globalAlpha = 0.13; g.lineWidth = 2;
+  for (let L = 0.1; L < 2.2; L += 0.12) {
+    g.beginPath();
+    for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
+      const a = v[j * cols + i], b = v[j * cols + i + 1], c = v[(j + 1) * cols + i + 1], d = v[(j + 1) * cols + i];
+      const pts = []; const e = (p, q, x1, y1, x2, y2) => { if ((p - L) * (q - L) < 0) { const t = (L - p) / (q - p); pts.push([(x1 + t * (x2 - x1)) * st, (y1 + t * (y2 - y1)) * st]); } };
+      e(a, b, i, j, i + 1, j); e(b, c, i + 1, j, i + 1, j + 1); e(d, c, i, j + 1, i + 1, j + 1); e(a, d, i, j, i, j + 1);
+      if (pts.length >= 2) { g.moveTo(...pts[0]); g.lineTo(...pts[1]); } if (pts.length === 4) { g.moveTo(...pts[2]); g.lineTo(...pts[3]); }
+    }
+    g.stroke();
+  }
+}
+window.render = () => document.querySelectorAll("canvas.topo").forEach((c, i) => topo(c, 1234 + i * 77));
+</script></body></html>
