@@ -9,7 +9,7 @@ const { chromium } = require("playwright");
     await p.waitForTimeout(400);
     const ids = await p.$$eval(".a", (e) => e.map((x) => x.id).filter(Boolean));
     console.log(ids.join(","));
-    for (const id of ids) await p.locator("#" + id).screenshot({ path: `C:/Users/tomga/github-profile/assets/${id}-${theme}.png` });
+    for (const id of ids) await p.locator("#" + id).screenshot({ path: `C:/Users/tomga/github-profile/img/${id}-${theme}.png` });
   }
   await b.close();
   console.log("ok");
