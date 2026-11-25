@@ -60,6 +60,24 @@ body.dark .card .art .no{color:#0b0b0b} body.dark .card .art .lang{background:#0
 #footer .s2{font-family:var(--sans);font-weight:800;font-stretch:85%;font-size:150px;letter-spacing:-.035em;line-height:.85;display:block;position:relative}
 #footer .info{position:absolute;right:52px;bottom:44px;text-align:right;font-size:16px;line-height:1.8}
 #footer .info b{background:var(--ink);color:var(--paper);padding:2px 8px}
+
+/* technical highlights */
+#th-head{padding:40px 52px 18px}
+#th-head .tag{font-size:14px;display:flex;gap:10px;align-items:center;color:var(--mute)}
+#th-head .tag i{width:44px;height:10px;background:var(--ink)}
+#th-head h2{font-family:var(--sans);font-weight:800;font-stretch:85%;font-size:64px;letter-spacing:-.03em;line-height:.9;margin-top:18px}
+#th-head h2 em{font-family:var(--serif);font-style:normal;font-weight:400;letter-spacing:0;font-size:70px}
+#th-head p{font-size:15px;color:var(--mute);margin-top:14px;max-width:760px;line-height:1.5}
+#th-head .cols{display:grid;grid-template-columns:220px 1fr 220px;gap:28px;margin-top:26px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.th{padding:22px 52px;display:grid;grid-template-columns:220px 1fr 220px;gap:28px;align-items:start}
+.th .nm{font-family:var(--sans);font-weight:800;font-stretch:85%;font-size:28px;letter-spacing:-.02em;line-height:1;text-transform:uppercase}
+.th .nm small{display:block;font-family:var(--code);font-weight:400;font-size:12px;letter-spacing:.02em;text-transform:none;color:var(--mute);margin-top:8px}
+.th .ap{font-size:14px;line-height:1.5}
+.th .st{font-size:12.5px;color:var(--mute);margin-top:10px}
+.th .rs{font-size:14px;line-height:1.45;text-align:right}
+.th .rs b{display:inline-block;background:var(--ink);color:var(--paper);padding:2px 8px;font-size:18px;margin-bottom:4px}
+.th.last{border-bottom:1px solid var(--ink)}
+.th + .th{}
 </style></head><body>
 <div class="a" id="banner"><canvas class="topo"></canvas>
   <div class="kick mono" style="position:relative"><i></i>// whoami — Bachelor 3 AI @ ECE Paris</div>
@@ -67,14 +85,12 @@ body.dark .card .art .no{color:#0b0b0b} body.dark .card .art .lang{background:#0
 
   <div class="foot mono"><b>$ status</b> open to a 6-month AI / ML internship · from April 2027 · Paris or abroad</div>
 </div>
-<div class="a t" id="t-work"><canvas class="topo"></canvas><span class="tag mono"><i></i>// ls ./featured</span>
-  <div class="big" style="position:relative"><span class="s1">Selected</span><span class="s2">WORK</span></div>
-  <div class="side mono">AI first. Every card opens the repo: README, code, commit log.</div></div>
-<div id="cards" style="display:flex;flex-wrap:wrap;gap:20px;width:1000px"></div>
-<div class="a t" id="t-stack"><canvas class="topo"></canvas><span class="tag mono"><i></i>// cat stack.json</span>
-  <div class="big" style="position:relative"><span class="s1">What I</span><span class="s2">REACH FOR</span></div>
-  <div class="side mono">Counted from my public repositories, not self-rated percentages.</div></div>
-<div class="a" id="stack"></div>
+<div class="a" id="th-head"><canvas class="topo"></canvas><div style="position:relative">
+<div class="tag mono"><i></i>// cat highlights.md</div>
+<h2>TECHNICAL <em>highlights</em></h2>
+<p class="mono">I build end-to-end AI systems — data → model → API → UI — and measure them.</p>
+<div class="cols mono"><span>Project</span><span>Approach · stack</span><span style="text-align:right">Result</span></div></div></div>
+<div id="ths" style="display:flex;flex-direction:column;gap:0"></div>
 <div class="a" id="footer"><canvas class="topo"></canvas>
   <span class="s1">Let's</span><span class="s2">COMMIT</span>
   <div class="info mono">tomglv.dev<br>tom.galvan92@gmail.com<br><b>git push origin internship</b></div>
@@ -114,5 +130,22 @@ function topo(cv, seed) {
     g.stroke();
   }
 }
+
+const TH = [
+ ["BuildScan", "team of 4", "NBT schematics → 32³ voxel grids + geometric features. RandomForest baseline vs 3D CNN, model served behind a REST API with a 3D viewer.", "PyTorch · scikit-learn · NumPy · FastAPI · Docker · Three.js", "<b>94.4 %</b><br>accuracy (3D CNN)<br>88.6 % RandomForest"],
+ ["AI PDF Sorter", "LLM vision", "Multimodal LLM reads handwritten scans into Pydantic-validated JSON. Uncertain cases go to a human queue, hash cache avoids paying twice.", "Python · Claude vision API · Pydantic", "<b>OCR → LLM</b><br>Tesseract benchmarked,<br>rejected on handwriting"],
+ ["Voltaire OCR + LLM", "C++", "Screen capture → Leptonica preprocessing → Tesseract 5 → two LLMs queried in parallel over REST, JSON parsed.", "C++ · Tesseract · libcurl · nlohmann/json · vcpkg", "<b>native</b><br>statically linked<br>Windows tool"],
+ ["AI Video Generator", "GenAI", "LLM script + visual prompts → text-to-image → text-to-speech → frames assembled into video, with a fallback at every stage.", "Python · Groq Llama 3.3 70B · OpenCV · pydub", "<b>0 manual</b><br>steps, fully<br>automated pipeline"],
+ ["ML Basics", "scikit-learn", "KNN, decision tree, linear & logistic regression, feature scaling and evaluation, auto-generated PDF report.", "pandas · scikit-learn · matplotlib", "<b>metrics</b><br>accuracy, confusion<br>matrix, R², MSE"],
+ ["Numerical Sim", "maths", "RC circuit solved with Euler, RK4 and the analytic solution; damped pendulum model.", "NumPy · matplotlib · CustomTkinter", "<b>Euler vs RK4</b><br>error comparison<br>between solvers"],
+ ["CineDeck", "full-stack", "Movie trading-card game on the TMDB API: auth, auction market with bid escrow, trades, scheduled jobs.", "Next.js · TypeScript · Prisma · PostgreSQL", "<b>live</b><br>in production<br>on Netlify"],
+];
+const ths = document.getElementById("ths");
+TH.forEach(([n, sub, ap, st, rs], i) => {
+  const d = document.createElement("div"); d.className = "a th" + (i === TH.length - 1 ? " last" : ""); d.id = "th-" + i;
+  if (i) d.style.borderTop = "1px solid color-mix(in srgb, var(--ink) 25%, transparent)";
+  d.innerHTML = `<div class="nm">${n}<small>${String(i + 1).padStart(2, "0")} · ${sub} ↗</small></div><div><div class="ap mono">${ap}</div><div class="st mono">${st}</div></div><div class="rs mono">${rs}</div>`;
+  ths.appendChild(d);
+});
 window.render = () => document.querySelectorAll("canvas.topo").forEach((c, i) => topo(c, 1234 + i * 77));
 </script></body></html>
