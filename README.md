@@ -1,38 +1,19 @@
-<a href="https://tomglv.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="img/banner-dark.png"><img src="img/banner-light.png" alt="Tom Galvan — Bachelor 3 AI at ECE Paris, looking for a 6-month AI internship" width="100%"></picture></a>
+<a href="https://tomglv.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="img/banner-dark.png"><img src="img/banner-light.png" alt="Tom Galvan — Bachelor 3 AI at ECE Paris, open to a 6-month AI / ML internship from April 2027" width="100%"></picture></a>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="img/typing-dark.svg"><img src="img/typing-light.svg" alt="AI · LLM & OCR pipelines — Python · ML — PyTorch — C++ — Web" width="100%"></picture>
+Third-year **Bachelor in Artificial Intelligence** student at **ECE Paris**. I build end-to-end AI systems — data → model → API → UI — and measure them.
 
-Third-year **Bachelor in Artificial Intelligence** student at **ECE Paris**. I build end-to-end AI systems — a PyTorch 3D CNN behind a FastAPI service, LLM-vision document processing with human review, OCR → LLM pipelines — and ship them.
-**Looking for a 6-month AI / ML internship from April 2027**, Paris or abroad.
+### Technical highlights
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="img/t-work-dark.png"><img src="img/t-work-light.png" alt="Selected work" width="100%"></picture>
+| Project | Approach | Stack | Result |
+|---|---|---|---|
+| [**BuildScan**](https://github.com/TomGlv/minecraft-house-ai) | NBT schematics → 32³ voxel grids + geometric features; RandomForest baseline vs 3D CNN; model served behind a REST API with a 3D viewer | PyTorch · scikit-learn · NumPy/SciPy · FastAPI · Docker · Three.js | **94.4 %** acc. (CNN) · 88.6 % (RF) |
+| [**AI PDF Sorter**](https://github.com/TomGlv/ai-pdf-sorter) | Multimodal LLM reads handwritten scans → Pydantic-validated JSON; uncertain cases routed to a human queue; hash cache | Python · Claude vision API · Pydantic | Tesseract benchmarked and rejected on handwriting |
+| [**Voltaire OCR + LLM**](https://github.com/TomGlv/voltaire-ocr-llm) | Screen capture → Leptonica preprocessing → Tesseract 5 → two LLMs queried in parallel over REST | C++ · Tesseract · libcurl · nlohmann/json · vcpkg | Native Windows tool, statically linked |
+| [**AI Lore Video Generator**](https://github.com/TomGlv/ai-lore-video-generator) | LLM script + visual prompts → text-to-image → TTS → frames assembled into video, fallback at each stage | Python · Groq (Llama 3.3 70B) · OpenCV · pydub | Fully automated pipeline |
+| [**ML with scikit-learn**](https://github.com/TomGlv/ml-scikit-learn-basics) | KNN, decision tree, linear & logistic regression, scaling, evaluation, auto-generated PDF report | pandas · scikit-learn · matplotlib | Accuracy, confusion matrix, R², MSE |
+| [**Numerical simulation**](https://github.com/TomGlv/numerical-simulation) | RC circuit: Euler vs RK4 vs analytic solution; damped pendulum | NumPy · matplotlib · CustomTkinter | Error comparison between solvers |
+| [**CineDeck**](https://github.com/TomGlv/cinedeck) | Full-stack game on the TMDB API: auth, auction market with escrow, trades, cron jobs | Next.js · TypeScript · Prisma · PostgreSQL | In production |
 
-<p>
-<a href="https://github.com/TomGlv/minecraft-house-ai"><picture><source media="(prefers-color-scheme: dark)" srcset="img/card-0-dark.png"><img src="img/card-0-light.png" alt="BuildScan" width="49%"></picture></a>
-<a href="https://github.com/TomGlv/ai-pdf-sorter"><picture><source media="(prefers-color-scheme: dark)" srcset="img/card-1-dark.png"><img src="img/card-1-light.png" alt="AI PDF Sorter" width="49%"></picture></a>
-</p>
+<picture><source media="(prefers-color-scheme: dark)" srcset="img/stack-dark.png"><img src="img/stack-light.png" alt="Stack: AI/ML, Python, C/C++, Web, Java/C#, SQL — counted from public repositories" width="100%"></picture>
 
-<p>
-<a href="https://github.com/TomGlv/voltaire-ocr-llm"><picture><source media="(prefers-color-scheme: dark)" srcset="img/card-2-dark.png"><img src="img/card-2-light.png" alt="Voltaire OCR + LLM" width="49%"></picture></a>
-<a href="https://github.com/TomGlv/ai-lore-video-generator"><picture><source media="(prefers-color-scheme: dark)" srcset="img/card-3-dark.png"><img src="img/card-3-light.png" alt="AI Lore Video Generator" width="49%"></picture></a>
-</p>
-
-<p>
-<a href="https://github.com/TomGlv/ml-scikit-learn-basics"><picture><source media="(prefers-color-scheme: dark)" srcset="img/card-4-dark.png"><img src="img/card-4-light.png" alt="ML with scikit-learn" width="49%"></picture></a>
-<a href="https://github.com/TomGlv/cinedeck"><picture><source media="(prefers-color-scheme: dark)" srcset="img/card-5-dark.png"><img src="img/card-5-light.png" alt="CineDeck" width="49%"></picture></a>
-</p>
-
-<p>
-<a href="https://github.com/TomGlv/archidia-web"><picture><source media="(prefers-color-scheme: dark)" srcset="img/card-6-dark.png"><img src="img/card-6-light.png" alt="archidia-web" width="49%"></picture></a>
-<a href="https://github.com/TomGlv/numerical-simulation"><picture><source media="(prefers-color-scheme: dark)" srcset="img/card-7-dark.png"><img src="img/card-7-light.png" alt="Numerical simulation" width="49%"></picture></a>
-</p>
-
-<p align="right"><a href="https://github.com/TomGlv?tab=repositories"><code>+ every other repo → git log --all</code></a></p>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="img/t-stack-dark.png"><img src="img/t-stack-light.png" alt="What I reach for" width="100%"></picture>
-
-<picture><source media="(prefers-color-scheme: dark)" srcset="img/stack-dark.png"><img src="img/stack-light.png" alt="Stack: AI/ML, Python, C/C++, Web, Java/C#, SQL" width="100%"></picture>
-
-<a href="mailto:tom.galvan92@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="img/footer-dark.png"><img src="img/footer-light.png" alt="Let us commit — tomglv.dev — tom.galvan92@gmail.com" width="100%"></picture></a>
-
-<sub>Same black & white design as <a href="https://tomglv.dev">tomglv.dev</a> — the visuals are rendered from <a href="_src/gen.html"><code>_src/gen.html</code></a> with the site&apos;s own fonts and icons.</sub>
+<a href="mailto:tom.galvan92@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="img/footer-dark.png"><img src="img/footer-light.png" alt="Let's commit — tomglv.dev — tom.galvan92@gmail.com" width="100%"></picture></a>

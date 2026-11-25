@@ -10,12 +10,12 @@ body{background:#888;font-family:var(--code);padding:20px;display:flex;flex-dire
 canvas.topo{position:absolute;inset:0;width:100%;height:100%}
 .mono{font-family:var(--code)}
 /* banner */
-#banner{height:400px;padding:44px 52px}
+#banner{height:330px;padding:44px 52px}
 #banner .kick{font-size:17px;letter-spacing:.02em;display:flex;align-items:center;gap:12px}
 #banner .kick i{display:inline-block;width:44px;height:10px;background:var(--ink)}
-#banner .name{position:relative;margin-top:26px;line-height:.8}
+#banner .name{position:relative;margin-top:44px;line-height:.8;display:flex;align-items:baseline;gap:28px}
 #banner .serif{font-family:var(--serif);font-size:150px;display:block;letter-spacing:-.01em}
-#banner .sans{font-family:var(--sans);font-weight:800;font-stretch:85%;font-size:170px;letter-spacing:-.035em;display:block;margin-top:-8px}
+#banner .sans{font-family:var(--sans);font-weight:800;font-stretch:85%;font-size:170px;letter-spacing:-.035em;display:block}
 #banner .av{position:absolute;right:18px;bottom:-6px;width:300px;filter:grayscale(1) contrast(1.05)}
 body.dark #banner .av{filter:grayscale(1) contrast(1.05) drop-shadow(0 0 0 #efeee9)}
 #banner .foot{position:absolute;left:52px;bottom:30px;font-size:16px;color:var(--ink);background:var(--paper);padding:4px 0}
@@ -64,8 +64,8 @@ body.dark .card .art .no{color:#0b0b0b} body.dark .card .art .lang{background:#0
 <div class="a" id="banner"><canvas class="topo"></canvas>
   <div class="kick mono" style="position:relative"><i></i>// whoami — Bachelor 3 AI @ ECE Paris</div>
   <div class="name"><span class="serif">Tom</span><span class="sans">GALVAN</span></div>
-  <img class="av" src="main.png">
-  <div class="foot mono"><b>$ status</b> 6-month AI internship · from April 2027 · Paris / abroad</div>
+
+  <div class="foot mono"><b>$ status</b> open to a 6-month AI / ML internship · from April 2027 · Paris or abroad</div>
 </div>
 <div class="a t" id="t-work"><canvas class="topo"></canvas><span class="tag mono"><i></i>// ls ./featured</span>
   <div class="big" style="position:relative"><span class="s1">Selected</span><span class="s2">WORK</span></div>
