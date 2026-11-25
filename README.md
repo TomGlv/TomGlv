@@ -1,4 +1,4 @@
-<a href="https://tomglv.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="img/banner-dark.png"><img src="img/banner-light.png" alt="Tom Galvan — Bachelor 3 AI at ECE Paris, open to a 6-month AI / ML internship from April 2027" width="100%"></picture></a>
+<a href="https://tomglv.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="img/hero-dark.png"><img src="img/hero-light.png" alt="Tom Galvan — Bachelor 3 AI at ECE Paris, open to a 6-month AI / ML internship from April 2027" width="100%"></picture></a>
 
 Third-year **Bachelor in Artificial Intelligence** student at **ECE Paris**. I build end-to-end AI systems — data → model → API → UI — and measure them.
 
